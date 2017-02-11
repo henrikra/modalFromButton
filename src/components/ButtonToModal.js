@@ -1,5 +1,11 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, Animated, Dimensions} from 'react-native';
+import {View, 
+  Text, 
+  StyleSheet, 
+  TouchableOpacity, 
+  Animated, 
+  Dimensions,
+} from 'react-native';
 
 class ButtonToModal extends Component {
   state = {
