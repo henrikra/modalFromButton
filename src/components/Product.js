@@ -3,9 +3,9 @@ import {View, Text, StyleSheet, Image} from 'react-native';
 
 import ButtonToModal from './ButtonToModal';
 
-const randomIntegetBetween = (from, to) => Math.floor(Math.random() * to) + from
+const randomIntegerBetween = (from, to) => Math.floor(Math.random() * to) + from
 const getRandomImage = () => 
-  `https://unsplash.it/30${randomIntegetBetween(0, 9)}/25${randomIntegetBetween(0, 9)}`
+  `https://unsplash.it/30${randomIntegerBetween(0, 9)}/25${randomIntegerBetween(0, 9)}`
 
 const Product = () => {
   return (
