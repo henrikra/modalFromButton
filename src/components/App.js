@@ -5,6 +5,8 @@ import {
   View
 } from 'react-native';
 
+import ButtonToModal from './ButtonToModal';
+
 class App extends Component {
   render() {
     return (
@@ -19,6 +21,7 @@ class App extends Component {
           Double tap R on your keyboard to reload,{'\n'}
           Shake or press menu button for dev menu
         </Text>
+        <ButtonToModal />
       </View>
     );
   }
