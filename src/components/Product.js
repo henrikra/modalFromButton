@@ -12,7 +12,7 @@ const Product = () => {
     <View style={styles.container}>
       <Image style={styles.image} source={{uri: getRandomImage()}} />
       <View style={styles.content}>
-        <Text>Product</Text>
+        <Text style={styles.title}>Product</Text>
         <ButtonToModal />
       </View>
     </View>
@@ -33,6 +33,10 @@ const styles = StyleSheet.create({
   content: {
     padding: 15,
   },
+  title: {
+    fontSize: 16,
+    marginBottom: 5,
+  }
 });
 
 export default Product;

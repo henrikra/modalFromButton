@@ -37,7 +37,7 @@ class ButtonToModal extends Component {
     return (
       <View style={styles.container} ref="button">
         <TouchableOpacity style={styles.pressableArea} onPress={this.onPress}>
-          <Text style={styles.text}>OPEN MODAL</Text>
+          <Text style={styles.text}>SEE DETAILS</Text>
         </TouchableOpacity>
         <Animated.View 
           style={[
