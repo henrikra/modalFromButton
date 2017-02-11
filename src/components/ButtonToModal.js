@@ -52,7 +52,7 @@ class ButtonToModal extends Component {
                 outputRange: [this.state.originalHeight, Dimensions.get('window').height],
               }),
               backgroundColor: this.state.animatedValue.interpolate({
-                inputRange: [0, 0.1],
+                inputRange: [0, 0.01],
                 outputRange: ['rgba(46, 204, 113, 0)', 'rgba(46, 204, 113, 1)']
               }),
               left: this.state.animatedValue.interpolate({
