@@ -4,7 +4,8 @@ import {View, Text, StyleSheet, Image} from 'react-native';
 import ButtonToModal from './ButtonToModal';
 
 const randomIntegetBetween = (from, to) => Math.floor(Math.random() * to) + from
-const getRandomImage = () => `https://unsplash.it/30${randomIntegetBetween(0, 9)}/25${randomIntegetBetween(0, 9)}`
+const getRandomImage = () => 
+  `https://unsplash.it/30${randomIntegetBetween(0, 9)}/25${randomIntegetBetween(0, 9)}`
 
 const Product = () => {
   return (
@@ -23,10 +24,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#bdc3c7',
     backgroundColor: '#ffffff',
+    marginBottom: 10,
   },
   image: {
     flex: 1,
-    height: 100,
+    height: 150,
   },
   content: {
     padding: 15,

@@ -9,22 +9,17 @@ import {
 
 import Product from './Product';
 
+const deals = [{}, {}, {}, {}, {}, {}];
+
 class App extends Component {
   render() {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.products}>
           <Text style={styles.welcome}>
-            Welcome to React Native!
+            Last minute travel deals
           </Text>
-          <Text style={styles.instructions}>
-            To get started, edit index.android.js
-          </Text>
-          <Text style={styles.instructions}>
-            Double tap R on your keyboard to reload,{'\n'}
-            Shake or press menu button for dev menu
-          </Text>
-          <Product />
+          {deals.map((deal, index) => <Product key={index} />)}
         </ScrollView>
       </View>
     );
@@ -36,7 +31,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     backgroundColor: '#F5FCFF',
-    padding: 20,
   },
   welcome: {
     fontSize: 20,
@@ -49,6 +43,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   products: {
+    padding: 20,
     overflow: 'visible',
   },
 });
