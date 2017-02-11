@@ -10,13 +10,12 @@ class ButtonToModal extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.refs.button.measure((x, y, width, height, pageX, pageY) => {
-        console.log('yello', pageX, pageY);
         this.setState({
           originalWidth: width,
           originalHeight: height,
           pageX,
           pageY,
-        })
+        });
       });
     }, 0);
   }
@@ -24,17 +23,8 @@ class ButtonToModal extends Component {
   
   onPress = () => {
     const {isModalOpen, animatedValue} = this.state;
-    console.log('oliko auki', isModalOpen);
     Animated.timing(animatedValue, {toValue: isModalOpen ? 0 : 1}).start();
     this.setState({isModalOpen: !isModalOpen});
-  }
-  
-  onLayout = ({nativeEvent: {layout}}) => {
-    // console.log(layout);
-    // this.setState({
-    //   originalWidth: layout.width,
-    //   originalHeight: layout.height,
-    // });
   }
   
   render() {
@@ -70,7 +60,6 @@ class ButtonToModal extends Component {
             }
           ]} 
           pointerEvents="none" 
-          onLayout={this.onLayout}
         />
       </View>
     );
