@@ -45,7 +45,7 @@ class Modal extends Component {
           {
             top: this.state.animatedValue.interpolate({
               inputRange: [animationStates.hidden, animationStates.start, animationStates.end],
-              outputRange: [-deviceWidth * 2, top, 0],
+              outputRange: [-deviceWidth * 3, top, 0],
             }), 
             left: this.state.animatedValue.interpolate({
               inputRange: [animationStates.start, animationStates.end],
