@@ -9,8 +9,8 @@ class Product extends Component {
         this.props.onPress({
           top: nativeEvent.pageY - nativeEvent.locationY,
           left: this.state.pageX,
-          width: this.state.originalWidth,
-          height: this.state.originalHeight,
+          width: this.state.width,
+          height: this.state.height,
           title: this.props.title,
           price: this.props.price,
           image: this.props.image,
@@ -23,8 +23,8 @@ class Product extends Component {
     setTimeout(() => {
       this.refs.button.measure((x, y, width, height, pageX, pageY) => {
         this.setState({
-          originalWidth: width,
-          originalHeight: height,
+          width,
+          height,
           pageX,
           pageY,
         });
