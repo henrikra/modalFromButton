@@ -36,7 +36,8 @@ class Modal extends Component {
   
   render() {
     const {top, left, width, height} = this.props;
-    const deviceWidth = Dimensions.get('window').width;
+    const {width: deviceWidth, height: deviceHeight} = Dimensions.get('window');
+    
     return (
       <Animated.View
         style={[
@@ -56,7 +57,7 @@ class Modal extends Component {
             }), 
             height: this.state.animatedValue.interpolate({
               inputRange: [animationStates.start, animationStates.end],
-              outputRange: [height, Dimensions.get('window').height],
+              outputRange: [height, deviceHeight],
             }),
             backgroundColor: this.state.animatedValue.interpolate({
               inputRange: [animationStates.start, animationStates.end],
