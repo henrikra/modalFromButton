@@ -69,10 +69,7 @@ class Modal extends Component {
         <Image style={styles.image} source={{uri: 'https://unsplash.it/300/250'}} />
         <Animated.View style={[styles.content, {opacity: this.state.animatedValue}]}>
           <Text style={styles.title}>{this.props.title}</Text>
-          <Text style={styles.description}>Tincidunt leo ullamco. Incididunt et litora tempus.
-Imperdiet libero minim magna. Cupidatat venenatis nunc duis. Adipiscing in cubilia.
-Conubia minim. Fusce aliquip malesuada. Sapien enim dolore.
-</Text>
+          <Text style={styles.description}>Tincidunt leo ullamco. Incididunt et litora tempus. Imperdiet libero minim magna. Cupidatat venenatis nunc duis. Adipiscing in cubilia. Conubia minim. Fusce aliquip malesuada. Sapien enim dolore.</Text>
           <Text style={styles.price}>${this.props.price}</Text>
           <Text style={styles.priceIncluding}>includes two way flights and hotel</Text>
           <TouchableOpacity style={styles.button} onPress={this.close}>
