@@ -8,33 +8,7 @@ import {
 
 import Product from './Product';
 import Modal from './Modal';
-
-const deals = [
-  {
-    title: 'Hotel Jeilou',
-    price: 560,
-  }, 
-  {
-    title: 'Hotel functionalen',
-    price: 320,
-  }, 
-  {
-    title: 'Native Hotel',
-    price: 5300,
-  }, 
-  {
-    title: 'Yellow rose hotel',
-    price: 50,
-  }, 
-  {
-    title: 'Foodoraas Hotel',
-    price: 630,
-  }, 
-  {
-    title: 'Wolt Hotel',
-    price: 990,
-  }
-];
+import mockDeals from '../mockDeals';
 
 class App extends Component {
   state = {
@@ -52,7 +26,7 @@ class App extends Component {
       <View style={styles.container}>
         <ScrollView style={styles.products}>
           <Text style={styles.welcome}>Hotel deals</Text>
-          {deals.map((deal, index) => <Product key={index} onPress={this.onPress} {...deal} />)}
+          {mockDeals.map((deal, index) => <Product key={index} onPress={this.onPress} {...deal} />)}
         </ScrollView>
         <Modal {...this.state} />
       </View>
