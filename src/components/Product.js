@@ -17,6 +17,7 @@ class Product extends Component {
           left: this.state.pageX,
           width: this.state.originalWidth,
           height: this.state.originalHeight,
+          title: this.props.title,
         });
       },
     });

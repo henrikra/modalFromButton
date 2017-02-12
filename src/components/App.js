@@ -34,10 +34,11 @@ class App extends Component {
   state = {
     top: 0,
     left: 0,
+    title: '',
   }
 
-  onPress = ({top, left, width, height}) => {
-    this.setState({top, left, width, height});
+  onPress = newState => {
+    this.setState(newState);
   }
 
   render() {
