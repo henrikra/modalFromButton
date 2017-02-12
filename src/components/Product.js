@@ -18,6 +18,7 @@ class Product extends Component {
           width: this.state.originalWidth,
           height: this.state.originalHeight,
           title: this.props.title,
+          price: this.props.price,
         });
       },
     });

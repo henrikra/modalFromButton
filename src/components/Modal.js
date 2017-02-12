@@ -73,7 +73,7 @@ class Modal extends Component {
 Imperdiet libero minim magna. Cupidatat venenatis nunc duis. Adipiscing in cubilia.
 Conubia minim. Fusce aliquip malesuada. Sapien enim dolore.
 </Text>
-          <Text style={styles.price}>$560</Text>
+          <Text style={styles.price}>${this.props.price}</Text>
           <Text style={styles.priceIncluding}>includes two way flights and hotel</Text>
           <TouchableOpacity style={styles.button} onPress={this.close}>
             <Text style={styles.buttonText}>ADD TO CART</Text>
