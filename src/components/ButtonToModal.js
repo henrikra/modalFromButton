@@ -33,8 +33,6 @@ class ButtonToModal extends Component {
           originalHeight: height,
           pageX,
           pageY,
-          x,
-          y
         });
       });
     }, 0);
