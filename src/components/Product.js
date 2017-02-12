@@ -1,13 +1,40 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
-
-import ButtonToModal from './ButtonToModal';
+import {View, Text, StyleSheet, Image, PanResponder, TouchableOpacity} from 'react-native';
 
 const randomIntegerBetween = (from, to) => Math.floor(Math.random() * to) + from
 const getRandomImage = () => 
   `https://unsplash.it/30${randomIntegerBetween(0, 9)}/25${randomIntegerBetween(0, 9)}`
 
 class Product extends Component {
+  componentWillMount() {
+    this._panResponder = PanResponder.create({
+      onStartShouldSetPanResponder: (evt, gestureState) => true,
+      onStartShouldSetPanResponderCapture: (evt, gestureState) => true,
+      onPanResponderTerminationRequest: (evt, gestureState) => true,
+      onPanResponderRelease: ({nativeEvent}, gestureState) => {
+        this.props.onPress({
+          top: gestureState.y0 - nativeEvent.locationY,
+          left: this.state.pageX,
+          width: this.state.originalWidth,
+          height: this.state.originalHeight,
+        });
+      },
+    });
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.refs.button.measure((x, y, width, height, pageX, pageY) => {
+        this.setState({
+          originalWidth: width,
+          originalHeight: height,
+          pageX,
+          pageY,
+        });
+      });
+    }, 0);
+  }
+
   render() {
     const {onPress, title} = this.props;
     return (
@@ -15,7 +42,11 @@ class Product extends Component {
         <Image style={styles.image} source={{uri: getRandomImage()}} />
         <View style={styles.content}>
           <Text style={styles.title}>{title}</Text>
-          <ButtonToModal onPress={onPress} />
+          <View style={styles.button} ref="button" {...this._panResponder.panHandlers}>
+            <TouchableOpacity style={styles.pressableArea} onPress={this.onPress}>
+              <Text style={styles.buttonText}>SEE DETAILS</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     );
@@ -39,7 +70,18 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     marginBottom: 5,
-  }
+  },
+  button: {
+    backgroundColor: '#2ecc71',
+  },
+  pressableArea: {
+    paddingVertical: 15,
+    paddingHorizontal: 25,
+  },
+  buttonText: {
+    color: '#ffffff',
+    fontWeight: '500',
+  },
 });
 
 export default Product;
