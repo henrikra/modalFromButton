@@ -22,12 +22,7 @@ class Product extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.refs.button.measure((x, y, width, height, pageX, pageY) => {
-        this.setState({
-          width,
-          height,
-          pageX,
-          pageY,
-        });
+        this.setState({width, height, pageX, pageY});
       });
     }, 0);
   }
