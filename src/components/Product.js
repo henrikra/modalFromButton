@@ -52,7 +52,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   image: {
-    flex: 1,
     height: 150,
   },
   content: {
