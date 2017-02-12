@@ -6,6 +6,7 @@ import {View,
   Dimensions, 
   TouchableOpacity,
   Image,
+  ScrollView,
 } from 'react-native';
 
 const animationStates = {
@@ -73,21 +74,23 @@ class Modal extends Component {
             outputRange: [0, 0, 1],
           }),
         }}>
-          <View style={styles.navigation}>
-            <TouchableOpacity onPress={this.close}>
-              <Text style={styles.back}>Back</Text>
-            </TouchableOpacity>
-          </View>
-          <Image style={styles.image} source={{uri: this.props.image}} />
-          <View style={styles.body}>
-            <Text style={styles.title}>{this.props.title}</Text>
-            <Text style={styles.description}>Tincidunt leo ullamco. Incididunt et litora tempus. Imperdiet libero minim magna. Cupidatat venenatis nunc duis. Adipiscing in cubilia. Conubia minim. Fusce aliquip malesuada. Sapien enim dolore.</Text>
-            <Text style={styles.price}>${this.props.price}</Text>
-            <Text style={styles.priceIncluding}>includes two way flights and hotel</Text>
-            <TouchableOpacity style={styles.button} onPress={this.close}>
-              <Text style={styles.buttonText}>ADD TO CART</Text>
-            </TouchableOpacity>
-          </View>
+          <ScrollView>
+            <View style={styles.navigation}>
+              <TouchableOpacity onPress={this.close}>
+                <Text style={styles.back}>Back</Text>
+              </TouchableOpacity>
+            </View>
+            <Image style={styles.image} source={{uri: this.props.image}} />
+            <View style={styles.body}>
+              <Text style={styles.title}>{this.props.title}</Text>
+              <Text style={styles.description}>Tincidunt leo ullamco. Incididunt et litora tempus. Imperdiet libero minim magna. Cupidatat venenatis nunc duis. Adipiscing in cubilia. Conubia minim. Fusce aliquip malesuada. Sapien enim dolore.</Text>
+              <Text style={styles.price}>${this.props.price}</Text>
+              <Text style={styles.priceIncluding}>includes two way flights and hotel</Text>
+              <TouchableOpacity style={styles.button} onPress={this.close}>
+                <Text style={styles.buttonText}>ADD TO CART</Text>
+              </TouchableOpacity>
+            </View>
+          </ScrollView>
         </Animated.View>
       </Animated.View>
     );
@@ -110,6 +113,7 @@ const styles = StyleSheet.create({
   },
   body: {
     padding: 20,
+    marginBottom: 25,
   },
   title: {
     fontSize: 24,
