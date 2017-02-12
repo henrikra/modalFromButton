@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Animated, Dimensions, TouchableOpacity} from 'react-native';
+import {View, 
+  Text, 
+  StyleSheet, 
+  Animated, 
+  Dimensions, 
+  TouchableOpacity,
+  Image,
+} from 'react-native';
 
 const animationStates = {
   hidden: 0,
@@ -33,7 +40,7 @@ class Modal extends Component {
           {
             top: this.state.animatedValue.interpolate({
               inputRange: [animationStates.hidden, animationStates.start, animationStates.end],
-              outputRange: [-deviceWidth, top, 0],
+              outputRange: [-deviceWidth * 2, top, 0],
             }), 
             left: this.state.animatedValue.interpolate({
               inputRange: [animationStates.start, animationStates.end],
@@ -50,9 +57,23 @@ class Modal extends Component {
           },
         ]}
       >
+        <View style={styles.navigation}>
+          <TouchableOpacity onPress={this.close}>
+            <Text style={styles.back}>Back</Text>
+          </TouchableOpacity>
+        </View>
+        <Image style={styles.image} source={{uri: 'https://unsplash.it/300/250'}} />
         <Animated.View style={[styles.content, {opacity: this.state.animatedValue}]}>
-          <Text>Modal</Text>
-          <TouchableOpacity style={styles.close} onPress={this.close} />
+          <Text style={styles.title}>Luxury trip to Krakow</Text>
+          <Text style={styles.description}>Tincidunt leo ullamco. Incididunt et litora tempus.
+Imperdiet libero minim magna. Cupidatat venenatis nunc duis. Adipiscing in cubilia.
+Conubia minim. Fusce aliquip malesuada. Sapien enim dolore.
+</Text>
+          <Text style={styles.price}>$560</Text>
+          <Text style={styles.priceIncluding}>includes two way flights and hotel</Text>
+          <TouchableOpacity style={styles.button} onPress={this.close}>
+            <Text style={styles.buttonText}>ADD TO CART</Text>
+          </TouchableOpacity>
         </Animated.View>
       </Animated.View>
     );
@@ -61,15 +82,51 @@ class Modal extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#2ecc71',
+    backgroundColor: 'rgba(44, 62, 80, 0.95)',
     position: 'absolute',
     overflow: 'hidden',
   },
-  close: {
-    backgroundColor: 'blue',
-    width: 50,
-    height: 50,
+  image: {
+    flex: 1,
+    height: 250,
   },
+  content: {
+    padding: 20,
+  },
+  title: {
+    fontSize: 24,
+    color: '#ffffff',
+    marginBottom: 10,
+  },
+  description: {
+    color: 'rgba(255, 255, 255, 0.7)',
+  },
+  navigation: {
+    marginTop: 20,
+    padding: 15,
+  },
+  button: {
+    backgroundColor: '#2ecc71',
+    padding: 15,
+  },
+  buttonText: {
+    color: '#ffffff',
+    textAlign: 'center',
+  },
+  back: {
+    color: '#2ecc71',
+  },
+  price: {
+    fontSize: 32,
+    fontWeight: '500',
+    color: '#ffffff',
+    marginTop: 15,
+  },
+  priceIncluding: {
+    color: 'rgba(255, 255, 255, 0.7)',
+    fontSize: 12,
+    marginBottom: 15,
+  }
 });
 
 export default Modal;
