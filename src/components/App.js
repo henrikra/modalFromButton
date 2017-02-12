@@ -51,9 +51,7 @@ class App extends Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.products}>
-          <Text style={styles.welcome}>
-            Last minute travel deals
-          </Text>
+          <Text style={styles.welcome}>Hotel deals</Text>
           {deals.map((deal, index) => <Product key={index} onPress={this.onPress} {...deal} />)}
         </ScrollView>
         <Modal {...this.state} />
@@ -65,18 +63,12 @@ class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#ecf0f1',
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
   },
   products: {
     padding: 20,
