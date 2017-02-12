@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image, PanResponder, TouchableOpacity} from 'react-native';
 
-const randomIntegerBetween = (from, to) => Math.floor(Math.random() * to) + from
-const getRandomImage = () => 
-  `https://unsplash.it/30${randomIntegerBetween(0, 9)}/25${randomIntegerBetween(0, 9)}`
-
 class Product extends Component {
   componentWillMount() {
     this._panResponder = PanResponder.create({
@@ -38,10 +34,10 @@ class Product extends Component {
   }
 
   render() {
-    const {onPress, title} = this.props;
+    const {onPress, title, image} = this.props;
     return (
       <View style={styles.container}>
-        <Image style={styles.image} source={{uri: getRandomImage()}} />
+        <Image style={styles.image} source={{uri: image}} />
         <View style={styles.content}>
           <Text style={styles.title}>{title}</Text>
           <View style={styles.button} ref="button" {...this._panResponder.panHandlers}>
