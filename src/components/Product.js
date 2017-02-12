@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 
 import ButtonToModal from './ButtonToModal';
@@ -7,17 +7,20 @@ const randomIntegerBetween = (from, to) => Math.floor(Math.random() * to) + from
 const getRandomImage = () => 
   `https://unsplash.it/30${randomIntegerBetween(0, 9)}/25${randomIntegerBetween(0, 9)}`
 
-const Product = ({onPress, title}) => {
-  return (
-    <View style={styles.container}>
-      <Image style={styles.image} source={{uri: getRandomImage()}} />
-      <View style={styles.content}>
-        <Text style={styles.title}>{title}</Text>
-        <ButtonToModal onPress={onPress} />
+class Product extends Component {
+  render() {
+    const {onPress, title} = this.props;
+    return (
+      <View style={styles.container}>
+        <Image style={styles.image} source={{uri: getRandomImage()}} />
+        <View style={styles.content}>
+          <Text style={styles.title}>{title}</Text>
+          <ButtonToModal onPress={onPress} />
+        </View>
       </View>
-    </View>
-  );
-};
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
