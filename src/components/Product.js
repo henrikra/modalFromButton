@@ -3,11 +3,11 @@ import {View, Text, StyleSheet, Image, PanResponder, TouchableOpacity} from 'rea
 
 class Product extends Component {
   componentWillMount() {
-    this._panResponder = PanResponder.create({
+    this.panResponder = PanResponder.create({
       onStartShouldSetPanResponderCapture: () => true,
-      onPanResponderRelease: ({nativeEvent}, gestureState) => {
+      onPanResponderRelease: ({nativeEvent}) => {
         this.props.onPress({
-          top: gestureState.y0 - nativeEvent.locationY,
+          top: nativeEvent.pageY - nativeEvent.locationY,
           left: this.state.pageX,
           width: this.state.originalWidth,
           height: this.state.originalHeight,
@@ -40,7 +40,7 @@ class Product extends Component {
         <Image style={styles.image} source={{uri: image}} />
         <View style={styles.content}>
           <Text style={styles.title}>{title}</Text>
-          <View style={styles.button} ref="button" {...this._panResponder.panHandlers}>
+          <View style={styles.button} ref="button" {...this.panResponder.panHandlers}>
             <TouchableOpacity style={styles.pressableArea} onPress={this.onPress}>
               <Text style={styles.buttonText}>SEE DETAILS</Text>
             </TouchableOpacity>
