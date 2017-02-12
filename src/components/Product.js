@@ -7,12 +7,12 @@ const randomIntegerBetween = (from, to) => Math.floor(Math.random() * to) + from
 const getRandomImage = () => 
   `https://unsplash.it/30${randomIntegerBetween(0, 9)}/25${randomIntegerBetween(0, 9)}`
 
-const Product = ({onPress}) => {
+const Product = ({onPress, title}) => {
   return (
     <View style={styles.container}>
       <Image style={styles.image} source={{uri: getRandomImage()}} />
       <View style={styles.content}>
-        <Text style={styles.title}>Product</Text>
+        <Text style={styles.title}>{title}</Text>
         <ButtonToModal onPress={onPress} />
       </View>
     </View>

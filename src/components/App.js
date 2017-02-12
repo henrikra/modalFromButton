@@ -6,11 +6,29 @@ import {
   ScrollView,
 } from 'react-native';
 
-
 import Product from './Product';
 import Modal from './Modal';
 
-const deals = [{}, {}, {}, {}, {}, {}];
+const deals = [
+  {
+    title: 'Hotel Jeilou'
+  }, 
+  {
+    title: 'Hotel functionalen'
+  }, 
+  {
+    title: 'Native Hotel'
+  }, 
+  {
+    title: 'Yellow rose hotel'
+  }, 
+  {
+    title: 'Foodoraas Hotel'
+  }, 
+  {
+    title: 'Wolt Hotel'
+  }
+];
 
 class App extends Component {
   state = {
@@ -19,7 +37,6 @@ class App extends Component {
   }
 
   onPress = ({top, left, width, height}) => {
-    console.log('yelloo', top, left);
     this.setState({top, left, width, height});
   }
 
@@ -30,7 +47,7 @@ class App extends Component {
           <Text style={styles.welcome}>
             Last minute travel deals
           </Text>
-          {deals.map((deal, index) => <Product key={index} onPress={this.onPress} />)}
+          {deals.map((deal, index) => <Product key={index} onPress={this.onPress} {...deal} />)}
         </ScrollView>
         <Modal {...this.state} />
       </View>
