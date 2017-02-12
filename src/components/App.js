@@ -11,12 +11,6 @@ import Modal from './Modal';
 import mockDeals from '../mockDeals';
 
 class App extends Component {
-  state = {
-    top: 0,
-    left: 0,
-    title: '',
-  }
-
   onPress = newState => {
     this.setState(newState);
   }

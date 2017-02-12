@@ -81,6 +81,11 @@ class Modal extends Component {
   }
 }
 
+Modal.defaultProps = {
+  top: 0,
+  left: 0,
+};
+
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'rgba(44, 62, 80, 0.95)',
