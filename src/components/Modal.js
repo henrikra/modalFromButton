@@ -54,6 +54,10 @@ class Modal extends Component {
               inputRange: [animationStates.start, animationStates.end],
               outputRange: [height, Dimensions.get('window').height],
             }),
+            backgroundColor: this.state.animatedValue.interpolate({
+              inputRange: [animationStates.start, animationStates.end],
+              outputRange: ['rgb(46, 204, 113)', 'rgba(44, 62, 80, 0.95)'],
+            }),
           },
         ]}
       >
