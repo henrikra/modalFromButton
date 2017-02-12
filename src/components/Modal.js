@@ -7,6 +7,7 @@ import {View,
   TouchableOpacity,
   Image,
   ScrollView,
+  Platform,
 } from 'react-native';
 
 const animationStates = {
@@ -124,7 +125,7 @@ const styles = StyleSheet.create({
     color: 'rgba(255, 255, 255, 0.7)',
   },
   navigation: {
-    marginTop: 20,
+    marginTop: Platform.OS === 'ios' ? 20 : 0,
     padding: 15,
   },
   button: {
