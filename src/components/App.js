@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   products: {
-    // padding: 20,
+    padding: 20,
     overflow: 'visible',
   },
 });
