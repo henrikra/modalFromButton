@@ -4,9 +4,7 @@ import {View, Text, StyleSheet, Image, PanResponder, TouchableOpacity} from 'rea
 class Product extends Component {
   componentWillMount() {
     this._panResponder = PanResponder.create({
-      onStartShouldSetPanResponder: (evt, gestureState) => true,
-      onStartShouldSetPanResponderCapture: (evt, gestureState) => true,
-      onPanResponderTerminationRequest: (evt, gestureState) => true,
+      onStartShouldSetPanResponderCapture: () => true,
       onPanResponderRelease: ({nativeEvent}, gestureState) => {
         this.props.onPress({
           top: gestureState.y0 - nativeEvent.locationY,
