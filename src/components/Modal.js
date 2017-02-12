@@ -21,11 +21,15 @@ class Modal extends Component {
   
   componentDidUpdate(prevProps, prevState) {
     this.state.animatedValue.setValue(animationStates.start);
-    Animated.timing(this.state.animatedValue, {toValue: animationStates.end, duration: 500}).start();
+    this.animateTo(animationStates.end).start();
+  }
+
+  animateTo = toValue => {
+   return Animated.timing(this.state.animatedValue, {toValue, duration: 500});
   }
   
   close = () => {
-    Animated.timing(this.state.animatedValue, {toValue: animationStates.start, duration: 500}).start(() => {
+    this.animateTo(animationStates.start).start(() => {
       this.state.animatedValue.setValue(animationStates.hidden);
     });
   }
