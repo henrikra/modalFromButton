@@ -8,10 +8,21 @@ import {
 
 
 import Product from './Product';
+import Modal from './Modal';
 
 const deals = [{}, {}, {}, {}, {}, {}];
 
 class App extends Component {
+  state = {
+    top: 0,
+    left: 0,
+  }
+
+  onPress = ({top, left, width, height}) => {
+    console.log('yelloo', top, left);
+    this.setState({top, left, width, height});
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -19,8 +30,9 @@ class App extends Component {
           <Text style={styles.welcome}>
             Last minute travel deals
           </Text>
-          {deals.map((deal, index) => <Product key={index} />)}
+          {deals.map((deal, index) => <Product key={index} onPress={this.onPress} />)}
         </ScrollView>
+        <Modal {...this.state} />
       </View>
     );
   }
@@ -43,7 +55,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   products: {
-    padding: 20,
+    // padding: 20,
     overflow: 'visible',
   },
 });
