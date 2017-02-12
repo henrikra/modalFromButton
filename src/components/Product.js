@@ -36,6 +36,7 @@ class Product extends Component {
 
   render() {
     const {onPress, title, image} = this.props;
+
     return (
       <View style={styles.container}>
         <Image style={styles.image} source={{uri: image}} />
@@ -54,8 +55,6 @@ class Product extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    borderWidth: 1,
-    borderColor: '#bdc3c7',
     backgroundColor: '#ffffff',
     marginBottom: 10,
   },
@@ -68,18 +67,18 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 16,
-    marginBottom: 5,
+    marginBottom: 10,
   },
   button: {
     backgroundColor: '#2ecc71',
   },
   pressableArea: {
     paddingVertical: 15,
-    paddingHorizontal: 25,
   },
   buttonText: {
     color: '#ffffff',
     fontWeight: '500',
+    textAlign: 'center',
   },
 });
 
