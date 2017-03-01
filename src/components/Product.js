@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image, PanResponder, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, Image, PanResponder} from 'react-native';
 
 class Product extends Component {
   componentWillMount() {
@@ -36,9 +36,7 @@ class Product extends Component {
         <View style={styles.content}>
           <Text style={styles.title}>{title}</Text>
           <View style={styles.button} ref="button" {...this.panResponder.panHandlers}>
-            <TouchableOpacity style={styles.pressableArea} onPress={this.onPress}>
-              <Text style={styles.buttonText}>SEE DETAILS</Text>
-            </TouchableOpacity>
+            <Text style={styles.buttonText}>SEE DETAILS</Text>
           </View>
         </View>
       </View>
@@ -63,8 +61,6 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#2ecc71',
-  },
-  pressableArea: {
     paddingVertical: 15,
   },
   buttonText: {
