@@ -2,22 +2,20 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image, PanResponder} from 'react-native';
 
 class Product extends Component {
-  componentWillMount() {
-    this.panResponder = PanResponder.create({
-      onStartShouldSetPanResponderCapture: () => true,
-      onPanResponderRelease: ({nativeEvent}) => {
-        this.props.onPress({
-          top: nativeEvent.pageY - nativeEvent.locationY,
-          left: this.state.pageX,
-          width: this.state.width,
-          height: this.state.height,
-          title: this.props.title,
-          price: this.props.price,
-          image: this.props.image,
-        });
-      },
-    });
-  }
+  panResponder = PanResponder.create({
+    onStartShouldSetPanResponderCapture: () => true,
+    onPanResponderRelease: ({nativeEvent}) => {
+      this.props.onPress({
+        top: nativeEvent.pageY - nativeEvent.locationY,
+        left: this.state.pageX,
+        width: this.state.width,
+        height: this.state.height,
+        title: this.props.title,
+        price: this.props.price,
+        image: this.props.image,
+      });
+    },
+  });
 
   componentDidMount() {
     setTimeout(() => {
