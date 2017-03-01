@@ -34,7 +34,9 @@ class Product extends Component {
         <View style={styles.content}>
           <Text style={styles.title}>{title}</Text>
           <View style={styles.button} ref="button" {...this.panResponder.panHandlers}>
-            <Text style={styles.buttonText}>SEE DETAILS</Text>
+            <View pointerEvents="none">
+              <Text style={styles.buttonText}>SEE DETAILS</Text>
+            </View>
           </View>
         </View>
       </View>
