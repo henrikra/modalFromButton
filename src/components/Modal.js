@@ -26,9 +26,7 @@ class Modal extends Component {
     this.animateTo(animationStates.end).start();
   }
 
-  animateTo = toValue => {
-   return Animated.timing(this.state.animatedValue, {toValue, duration: 500});
-  }
+  animateTo = toValue => Animated.timing(this.state.animatedValue, {toValue, duration: 500})
   
   close = () => {
     this.animateTo(animationStates.start).start(() => {
