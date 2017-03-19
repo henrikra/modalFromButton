@@ -21,7 +21,7 @@ class Modal extends Component {
     animatedValue: new Animated.Value(0),
   }
   
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate() {
     this.state.animatedValue.setValue(animationStates.start);
     this.animateTo(animationStates.end).start();
   }
