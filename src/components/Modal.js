@@ -124,7 +124,6 @@ const styles = StyleSheet.create({
   },
   navigation: {
     marginTop: Platform.OS === 'ios' ? 20 : 0,
-    padding: 15,
   },
   button: {
     backgroundColor: '#2ecc71',
@@ -136,6 +135,7 @@ const styles = StyleSheet.create({
   },
   back: {
     color: '#2ecc71',
+    padding: 15,
   },
   price: {
     fontSize: 32,
